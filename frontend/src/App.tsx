@@ -25,7 +25,7 @@ export default function App() {
   async function sendMessage(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsSending(true);
-    setStatus("Sending Message...");
+    setStatus("Sending message...");
 
     try {
       await saveContactSupport(form);
@@ -36,11 +36,6 @@ export default function App() {
     } finally {
       setIsSending(false);
     }
-  }
-
-  function renderStatus() {
-    if (!status) return null;
-    return <p className="status">{status}</p>;
   }
 
   return (
@@ -113,7 +108,7 @@ export default function App() {
               </label>
 
               <button className="primary-button" disabled={!canSend || isSending} type="submit">
-                {isSending ? "Sending..." : "Send It!"}
+                {isSending ? "Saving..." : "Save It!"}
               </button>
             </form>
           </div>
@@ -131,7 +126,7 @@ export default function App() {
         </section>
       </section>
 
-      {renderStatus()}
+      {status ? <p className="status">{status}</p> : null}
     </main>
   );
 }
