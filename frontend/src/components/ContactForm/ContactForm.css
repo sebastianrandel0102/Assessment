@@ -14,8 +14,16 @@
   line-height: 1.02;
 }
 
+.shell[data-theme="dark"] .card-cap h1 {
+  color: #f7f4ff;
+}
+
 .card-cap .eyebrow {
   color: var(--purple-deep);
+}
+
+.shell[data-theme="dark"] .card-cap .eyebrow {
+  color: var(--sky);
 }
 
 .eyebrow {
@@ -136,13 +144,33 @@ textarea {
 
 .shell[data-theme="dark"] input,
 .shell[data-theme="dark"] textarea {
-  color: var(--ink);
+  color: #f7f4ff;
+  caret-color: #f7f4ff;
+  color-scheme: dark;
   background: rgba(13, 18, 32, 0.84);
   border-color: var(--sky);
   border-top-color: var(--purple);
   border-right-color: var(--coral);
   border-bottom-color: var(--mint);
   border-left-color: var(--sky);
+}
+
+.shell[data-theme="dark"] input:-webkit-autofill,
+.shell[data-theme="dark"] input:-webkit-autofill:hover,
+.shell[data-theme="dark"] input:-webkit-autofill:focus,
+.shell[data-theme="dark"] textarea:-webkit-autofill,
+.shell[data-theme="dark"] textarea:-webkit-autofill:hover,
+.shell[data-theme="dark"] textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f7f4ff;
+  caret-color: #f7f4ff;
+  box-shadow: 0 0 0 1000px #0d1220 inset;
+}
+
+.shell[data-theme="dark"] input:-webkit-autofill:focus,
+.shell[data-theme="dark"] textarea:-webkit-autofill:focus {
+  box-shadow:
+    0 0 0 1000px #12182a inset,
+    0 0 0 5px var(--purple-soft);
 }
 
 textarea {
@@ -229,13 +257,13 @@ button:disabled {
   min-height: 52px;
   margin-top: 10px;
   color: #ffffff;
-  background: var(--purple);
+  background: var(--sky);
   border: 0;
-  box-shadow: 0 14px 26px rgba(92, 80, 200, 0.22);
+  box-shadow: 0 14px 26px rgba(103, 183, 220, 0.2);
 }
 
 .primary-button:hover:not(:disabled) {
-  background: var(--sky);
+  background: var(--purple);
   box-shadow: 0 18px 34px rgba(92, 80, 200, 0.28);
 }
 

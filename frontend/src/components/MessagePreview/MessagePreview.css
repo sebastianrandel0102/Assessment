@@ -19,6 +19,9 @@
 }
 
 .preview {
+  display: grid;
+  align-content: start;
+  gap: clamp(76px, 8vh, 92px);
   width: min(340px, 100%);
   min-height: clamp(430px, 55vh, 500px);
   padding: 34px 32px 42px;
@@ -43,7 +46,7 @@
 
 .preview-label {
   display: block;
-  margin: 0 0 92px;
+  margin: 0;
   padding: 0;
   color: var(--purple-deep);
   font-family: "Trebuchet MS", Aptos, "Segoe UI", sans-serif;
@@ -55,7 +58,8 @@
 
 .preview-name {
   display: block;
-  margin: 0 0 82px;
+  min-width: 0;
+  margin: 0;
   padding: 0;
   color: #22283a;
   font-family: Georgia, "Times New Roman", serif;
@@ -71,7 +75,8 @@
 
 .preview-email {
   display: block;
-  margin: 0 0 88px;
+  min-width: 0;
+  margin: 0;
   padding: 0;
   color: #53708a;
   font-family: Aptos, "Segoe UI", Arial, sans-serif;
@@ -87,6 +92,7 @@
 
 .preview-message {
   display: block;
+  min-width: 0;
   margin: 0;
   padding: 0;
   color: #59606f;
@@ -108,6 +114,7 @@
   }
 
   .preview {
+    gap: clamp(56px, 7vh, 72px);
     width: min(420px, 100%);
     min-height: 420px;
   }
@@ -115,51 +122,47 @@
 
 @media (max-width: 480px) {
   .side-panel {
+    align-items: stretch;
     padding: 12px;
     border-left-width: 4px;
   }
 
   .preview {
-    min-height: 360px;
-    padding: 24px 22px 30px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
+    min-height: 0;
+    padding: 16px 16px 18px;
   }
 
   .preview-label {
-    margin-bottom: 52px;
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .preview-name {
-    margin-bottom: 48px;
-    font-size: 22px;
+    font-size: 19px;
   }
 
   .preview-email {
-    margin-bottom: 50px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .preview-message {
-    font-size: 13px;
+    max-height: 4.8rem;
+    overflow: auto;
+    font-size: 12px;
+    line-height: 1.45;
   }
 }
 
 @media (max-width: 360px) {
   .preview {
-    min-height: 330px;
-    padding: 20px 18px 24px;
-  }
-
-  .preview-label {
-    margin-bottom: 42px;
+    gap: 8px;
+    min-height: 0;
+    padding: 14px;
   }
 
   .preview-name {
-    margin-bottom: 38px;
-    font-size: 20px;
-  }
-
-  .preview-email {
-    margin-bottom: 40px;
+    font-size: 18px;
   }
 }
