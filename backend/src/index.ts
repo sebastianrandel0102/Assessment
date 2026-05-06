@@ -14,6 +14,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || '';
+const SUPPORT_RECIPIENT = process.env.SUPPORT_RECIPIENT || process.env.EMAIL_USER;
 const CONTACT_ROUTES = ['/api/contact', '/api/contact-support'];
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const DEFAULT_DNS_SERVERS = ['10.158.254.133', '10.158.254.132'];
@@ -113,7 +114,7 @@ app.post(CONTACT_ROUTES, async (req, res) => {
 
         await transporter.sendMail({
           from: process.env.EMAIL_USER,
-          to: 'randels1417@gmail.com',
+          to: SUPPORT_RECIPIENT,
           subject: `New contact support message from ${contactSupport.name}`,
           html: buildContactEmailHtml(previewName, previewEmail, previewMessage),
         });

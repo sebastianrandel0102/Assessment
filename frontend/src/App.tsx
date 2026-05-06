@@ -88,7 +88,7 @@ export default function App() {
                   aria-label="Email Address"
                   value={form.email}
                   onChange={(event) => updateField("email", event.target.value)}
-                  placeholder="E-mail id"
+                  placeholder="E-mail"
                   autoComplete="email"
                   type="email"
                   required
