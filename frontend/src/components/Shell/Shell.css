@@ -1,0 +1,151 @@
+.shell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(76px, 8vw, 96px) clamp(24px, 4vw, 64px) clamp(28px, 5vw, 64px);
+  animation: page-in 700ms var(--ease) both;
+}
+
+.contact-hero {
+  position: relative;
+  z-index: 1;
+  width: min(1440px, 100%);
+  display: grid;
+  place-items: center;
+  width: 100%;
+}
+
+.contact-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.56fr);
+  gap: clamp(24px, 3vw, 42px);
+  width: min(1200px, 100%);
+  min-height: clamp(0px, calc(100vh - 128px), 720px);
+  padding: clamp(28px, 4vw, 54px);
+  overflow: hidden;
+  color: var(--ink);
+  background: #ffffff;
+  border: 1px solid rgba(172, 181, 201, 0.38);
+  border-top: 6px solid var(--coral);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  animation: card-in 760ms 120ms var(--ease) both;
+}
+
+.shell[data-theme="dark"] .contact-card {
+  background: #151a29;
+  border-color: rgba(148, 164, 205, 0.2);
+  border-top-color: var(--mint);
+}
+
+.contact-card::before {
+  display: none;
+  content: none;
+}
+
+.contact-card::after {
+  display: none;
+  content: none;
+}
+
+.side-panel {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+
+.form-panel {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 1080px) {
+  .shell {
+    align-items: start;
+  }
+
+  .contact-card {
+    grid-template-columns: 1fr;
+    width: min(780px, 100%);
+    min-height: 0;
+    gap: 28px;
+  }
+
+  .side-panel {
+    align-items: center;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 860px) {
+  body::before {
+    right: -42vw;
+    width: 118vw;
+  }
+
+  .shell {
+    width: 100%;
+    padding: 76px 18px 28px;
+  }
+
+  .contact-card {
+    min-height: 0;
+    padding: clamp(22px, 5vw, 34px);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shell {
+    padding: 68px 8px 18px;
+  }
+
+  .contact-card {
+    padding: 18px 14px;
+    border-top-width: 5px;
+  }
+
+  .contact-card::before {
+    width: 360px;
+  }
+}
+
+@media (max-width: 360px) {
+  .shell {
+    padding-right: 6px;
+    padding-left: 6px;
+  }
+
+  .contact-card {
+    padding: 16px 10px;
+  }
+}
