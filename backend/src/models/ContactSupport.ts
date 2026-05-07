@@ -7,7 +7,6 @@ export interface ContactSupportDocument extends Document {
   email: string;
   message: string;
   emailLayoutHtml: string;
-  emailVerifiedAt?: Date;
 }
 
 const contactSupportSchema = new Schema<ContactSupportDocument>(
@@ -31,9 +30,6 @@ const contactSupportSchema = new Schema<ContactSupportDocument>(
     emailLayoutHtml: {
       type: String,
       required: true,
-    },
-    emailVerifiedAt: {
-      type: Date,
     },
   },
   {
